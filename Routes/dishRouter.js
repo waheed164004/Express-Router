@@ -44,12 +44,14 @@ dishRouter.route('/:dishId')
   })
   
 .post((req, res, next) => {
-    res.end('Will add the dish: ' + req.body.name + ' with details: ' + req.body.description);
+  res.end('POST operation not supported on /dishes');
    })
   
 .put((req, res, next) => {
     res.statusCode = 403;
-    res.end('PUT operation not supported on /dishes');
+    res.write(`updating the dish: ${req.params.dishId} \n`);
+    res.end('Will add the dish: ' + req.body.name + ' with details: ' + req.body.description);
+    
   })
   
 .delete((req, res, next) => {
